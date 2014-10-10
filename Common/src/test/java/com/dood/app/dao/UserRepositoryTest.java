@@ -17,8 +17,8 @@ import static org.junit.Assert.*;
 @ContextConfiguration(locations = { "/test-application-context.xml" })
 @TransactionConfiguration(defaultRollback=true)
 public class UserRepositoryTest extends AbstractTransactionalJUnit4SpringContextTests {
-
     private static final Logger LOG = LoggerFactory.getLogger(UserRepositoryTest.class);
+
     @Autowired
     private UserDao userDao;
 

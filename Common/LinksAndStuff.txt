@@ -1,0 +1,4 @@
+https://boplicity.nl/confluence/display/Java/Unit+testing+JPA+-+Hibernate+components+with+in-memory+H2+database
+http://www.murraywilliams.com/2012/04/maven-and-jpa-programming/
+http://stackoverflow.com/questions/6965794/jpa-connection-with-h2-database
+http://www.hascode.com/2013/04/easy-database-migrations-using-flyway-java-ee-6-and-glassfish/
