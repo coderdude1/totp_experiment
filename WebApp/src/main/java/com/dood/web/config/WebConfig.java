@@ -19,7 +19,7 @@ import java.util.Locale;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan//scan stuff from Web project here
+@ComponentScan(basePackages = {"com.dood.web.controller", "com.dood.web.model"})//scan stuff from Web project here
 public class WebConfig extends WebMvcConfigurerAdapter {
     public static final MediaType JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(),
             MediaType.APPLICATION_JSON.getSubtype(),
