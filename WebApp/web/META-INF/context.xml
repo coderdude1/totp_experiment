@@ -1,0 +1,15 @@
+<Context antiJARLocking="true" path="/">
+    <Resource name="jdbc/WebDev"
+          auth="Container"
+          type="javax.sql.DataSource"
+          driverClassName="org.postgresql.Driver"
+          url="jdbc:postgresql://localhost/WebDev"
+          username="webdev"
+          password="x"
+          removeAbandoned="true"
+          removeAbandonedTimeout="90"
+          logAbandoned="true"
+          maxActive="20"
+          maxIdle="10"
+          maxWait="-1"/>
+</Context>

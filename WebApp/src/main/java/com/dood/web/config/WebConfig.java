@@ -45,14 +45,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //        registry.addResourceHandler("/static/**").addResourceLocations("/static/").setCachePeriod(31556926);
     }
 
-//    /**
-//     * @param interceptorRegistry
-//     */
-//    @Override
-//    public void addInterceptors(InterceptorRegistry interceptorRegistry) {
-//        interceptorRegistry.addInterceptor(localeChangeInterceptor());
-//    }
-
     @Bean
     public InternalResourceViewResolver getInternalResourceViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -69,41 +61,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 .mediaType("json", MediaType.APPLICATION_JSON)
                 .defaultContentType(MediaType.APPLICATION_JSON);
     }
-
-    /**
-     * ReloadableResourceBundleMessageSource allows reloading of resource bundle contents without a server restart.
-     *
-     * @return MessageSource
-     */
-    @Bean
-    public MessageSource messageSource() {
-        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasenames("classpath:ValidationMessages", "classpath:login_locale");
-        messageSource.setUseCodeAsDefaultMessage(true);
-        messageSource.setDefaultEncoding("UTF-8");
-
-        // # -1 : never reload, 0 always reload - seconds.
-        messageSource.setCacheSeconds(600);
-        return messageSource;
-    }
-//
-//    @Bean
-//    public LocaleChangeInterceptor localeChangeInterceptor() {
-//        LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
-//        localeChangeInterceptor.setParamName("locale");
-//        return localeChangeInterceptor;
-//    }
-//
-//    @Bean(name = "localeResolver")
-//    public LocaleResolver sessionLocaleResolver() {
-//        SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
-//        sessionLocaleResolver.setDefaultLocale(new Locale("en", "US"));
-//        return sessionLocaleResolver;
-//    }
-//    @Bean(name = "localeConfigurerFilterBean")
-//    public LocaleConfigurerFilter createLocaleConfigurerFilter() {
-//        return new LocaleConfigurerFilter();
-//    }
 
     @Bean
     public RestTemplate restTemplate() {
