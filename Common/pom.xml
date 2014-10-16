@@ -97,10 +97,20 @@
         </dependency>
 
         <dependency>
+
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.7</version>
         </dependency>
+
+        <!-- DB stuff -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.3-1102-jdbc41</version>
+        </dependency>
+
+        <!-- Test stuff -->
 
         <dependency>
             <groupId>junit</groupId>
