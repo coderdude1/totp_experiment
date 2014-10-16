@@ -11,10 +11,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <spring.version>3.2.10.RELEASE</spring.version>
+        <spring.version>3.2.11.RELEASE</spring.version>
         <!--<spring.version>4.0.6.RELEASE</spring.version>-->
         <hibernate.version>4.3.6.Final</hibernate.version>
-        <bootstrap.version>3.1.1</bootstrap.version>
     </properties>
 
     <dependencies>
@@ -107,6 +106,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.8.2</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
