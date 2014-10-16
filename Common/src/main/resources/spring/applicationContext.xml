@@ -10,8 +10,6 @@
     <!--this needs to bve mnoved to the client package -->
     <mvc:annotation-driven />
 
-    <!--<import resource="appContext-flyway.xml"/>-->
-    <import resource="classpath:mvc-web-stuff.xml"/>
     <import resource="appContext-flyway.xml" />
     <import resource="appContext-db.xml"/>
 </beans>
