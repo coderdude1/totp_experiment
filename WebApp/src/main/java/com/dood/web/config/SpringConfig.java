@@ -10,7 +10,6 @@ import org.springframework.context.annotation.*;
 @Configuration
 @Import({WebConfig.class, CoreConfig.class})
 //@ImportResource("classpath:/spring/applicationContext.xml")//uthis will be changed to java config
-@ImportResource("classpath:/spring/applicationContext.xml")//uthis will be changed to java config
 @ComponentScan( basePackages = "com.dood.controller" )
 //@PropertySource({ "classpath:rest.properties", "classpath:web.properties" })
 public class SpringConfig {

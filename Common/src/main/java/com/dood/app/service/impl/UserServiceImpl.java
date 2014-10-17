@@ -9,9 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by randy on 8/27/2014.
- */
 @Service(value = "userServiceImpl")
 public class UserServiceImpl implements UserService {
     @Qualifier("userDao")//TODO why is this needed?

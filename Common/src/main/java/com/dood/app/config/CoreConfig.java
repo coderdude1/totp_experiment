@@ -21,8 +21,8 @@ import java.util.Properties;
  * h2 and postgresql, flyway, JNDI tomcat datasource thingy, conn pooling, etc
  */
 @Configuration
-@EnableJpaRepositories(basePackages = {"com.dood.app.entities", "com.dood.app.daos"})
-//@ComponentScan(basePackages = {"com.dood.app", "com.dood.app"})
+@EnableJpaRepositories(basePackages = {"com.dood.app.entities", "com.dood.app.dao"})
+@ComponentScan(basePackages = {"com.dood.app.service", "com.dood.app.service.impl", "com.dood.app.dao"})
 @EnableTransactionManagement
 //@Import({x.class, y.class})
 public class CoreConfig {
