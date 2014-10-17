@@ -1,5 +1,6 @@
 package com.dood.web.config;
 
+import com.dood.app.config.CoreConfig;
 import org.springframework.context.annotation.*;
 
 /**
@@ -7,7 +8,8 @@ import org.springframework.context.annotation.*;
  */
 
 @Configuration
-@Import({WebConfig.class})
+@Import({WebConfig.class, CoreConfig.class})
+//@ImportResource("classpath:/spring/applicationContext.xml")//uthis will be changed to java config
 @ImportResource("classpath:/spring/applicationContext.xml")//uthis will be changed to java config
 @ComponentScan( basePackages = "com.dood.controller" )
 //@PropertySource({ "classpath:rest.properties", "classpath:web.properties" })

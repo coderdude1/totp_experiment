@@ -13,22 +13,22 @@
 
     <!-- JPA stuff -->
 
-    <bean id="dbDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/WebDev"/>
-    </bean>
+    <!--<bean id="dbDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">-->
+        <!--<property name="jndiName" value="java:comp/env/jdbc/WebDev"/>-->
+    <!--</bean>-->
 
-    <jpa:repositories base-package="com.dood.app"/>
+    <!--<jpa:repositories base-package="com.dood.app"/>-->
 
-    <!-- depends on flyway to allow flyway to execute any db migrations BEFORE allowing JPA/Hiberante
-    to fire up -->
-    <bean id="entityManagerFactory" depends-on="flyway"
-          class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-        <property name="persistenceUnitName" value="postgresPersistenceUnit"/>
-    </bean>
+    <!--&lt;!&ndash; depends on flyway to allow flyway to execute any db migrations BEFORE allowing JPA/Hiberante-->
+    <!--to fire up &ndash;&gt;-->
+    <!--<bean id="entityManagerFactory" depends-on="flyway"-->
+          <!--class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">-->
+        <!--<property name="persistenceUnitName" value="postgresPersistenceUnit"/>-->
+    <!--</bean>-->
 
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory" />
-    </bean>
+    <!--<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
+        <!--<property name="entityManagerFactory" ref="entityManagerFactory" />-->
+    <!--</bean>-->
 
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
 </beans>
