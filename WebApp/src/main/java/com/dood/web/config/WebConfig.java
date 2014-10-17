@@ -1,21 +1,14 @@
 package com.dood.web.config;
 
-import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.*;
-import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.nio.charset.Charset;
-import java.util.Locale;
 
 @EnableWebMvc
 @Configuration
@@ -35,7 +28,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     /**
-     * add resource handlers for /resources/** and /static/**, and cache static resources
+     * add resource handlers for /resources/** and /static/**
      *
      * @param registry ResourceHandlerRegistry
      */
