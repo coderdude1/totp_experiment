@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-//@RequestMapping("/user")
+@RequestMapping("/user")
 public class UserController {
 
     /**
