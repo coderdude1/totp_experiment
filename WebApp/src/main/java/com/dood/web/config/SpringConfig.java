@@ -13,5 +13,4 @@ import org.springframework.context.annotation.*;
 @ComponentScan( basePackages = "com.dood.controller" )
 //@PropertySource({ "classpath:rest.properties", "classpath:web.properties" })
 public class SpringConfig {
-
 }
