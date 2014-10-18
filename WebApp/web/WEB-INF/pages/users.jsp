@@ -20,7 +20,7 @@
 <div class="container">
     <div class="row">
         <div class="span8 offset2">
-            <h1>Users</h1>
+            <h1>User Management</h1>
             <form:form method="post" action="add" commandName="user" class="form-horizontal">
             <div class="control-group">
                 <form:label cssClass="control-label" path="firstName">First Name:</form:label>
