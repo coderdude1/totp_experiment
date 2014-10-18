@@ -1,33 +1,78 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!doctype html>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<div class="col-sm-offset-1 col-sm-10">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Spring MVC Application</title>
 
-    <legend>
-        <spring:message code="table.user.title" />
-    </legend>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div>
-        <table id="dataTable" class="table table-striped table-bordered">
-            <thead>
-            <tr>
-                <th><spring:message code="table.user.id" /></th>
-                <th><spring:message code="table.user.firstName" /></th>
-                <th><spring:message code="table.user.falilyName" /></th>
-                <th><spring:message code="table.user.email" /></th>
-            </tr>
-            <thead>
-            <tbody>
-            <c:forEach var="u" items="${usersModel}">
-            <tr>
-                <td>${u.id}</td>
-                <td>${u.firstName}</td>
-                <td>${u.familyName}</td>
-                <td>${u.email}</td>
-            <tr>
-                </c:forEach>
-            </tbody>
-        </table>
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="span8 offset2">
+            <h1>Users</h1>
+            <form:form method="post" action="add" commandName="user" class="form-horizontal">
+            <div class="control-group">
+                <form:label cssClass="control-label" path="firstName">First Name:</form:label>
+                <div class="controls">
+                    <form:input path="firstName"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <form:label cssClass="control-label" path="lastName">Last Name:</form:label>
+                <div class="controls">
+                    <form:input path="lastName"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <form:label cssClass="control-label" path="email">Email:</form:label>
+                <div class="controls">
+                    <form:input path="email"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="submit" value="Add User" class="btn"/>
+                    </form:form>
+                </div>
+            </div>
+
+            <c:if test="${!empty users}">
+                <h3>Users</h3>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${users}" var="user">
+                        <tr>
+                            <td>${user.lastName}, ${user.firstName}</td>
+                            <td>${user.email}</td>
+                            <td>
+                                <form action="delete/${user.id}" method="post"><input type="submit" class="btn btn-danger btn-mini" value="Delete"/></form>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </c:if>
+        </div>
     </div>
 </div>
+
+</body>
+</html>
