@@ -11,6 +11,7 @@
     <properties>
         <spring.version>3.2.11.RELEASE</spring.version>
         <bootstrap.version>3.1.1</bootstrap.version>
+        <spring.security.version>3.2.5.RELEASE</spring.security.version>
     </properties>
 
     <dependencies>
@@ -45,6 +46,20 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+
+
         <!-- Logback check the version once I get a wifi connection -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -66,6 +81,7 @@
 
         <!-- web stuff required to get jstl working with servlet 3.0
             http://stackoverflow.com/questions/6094329/tomcat-7-and-jstl
+            not sure if this is necessary tho, experiment!
         -->
         <dependency>
             <groupId>javax.servlet</groupId>
