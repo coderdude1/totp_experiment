@@ -43,9 +43,9 @@ public class UserRepositoryTest extends AbstractTransactionalJUnit4SpringContext
         userDao.save(createUser("two", "one", "two.com.dood.web.config"));
         List<User> users = userDao.findAll();
         assertNotNull(users);
-        assertEquals("Size", 2, users.size());
+        assertEquals("Size", 3, users.size());
         long count = userDao.count();
-        assertEquals("Count test", 2, count);
+        assertEquals("Count test", 3, count);
     }
 
     private User createUser(String firstName, String lastName, String email) {
