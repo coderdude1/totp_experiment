@@ -110,6 +110,13 @@
             <version>9.3-1102-jdbc41</version>
         </dependency>
 
+        <!-- misc -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
+
         <!-- Test stuff -->
 
         <dependency>
