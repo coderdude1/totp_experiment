@@ -66,7 +66,7 @@ public class CoreConfig {
         return properties;
     }
 
-    @Bean(name = "flyway")
+    @Bean(name = "flyway", initMethod = "migrate")
     public Flyway createFlyway() {
         Flyway flyway = new Flyway();
         flyway.setDataSource(dataSource());

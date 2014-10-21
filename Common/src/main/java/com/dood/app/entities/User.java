@@ -1,6 +1,9 @@
 package com.dood.app.entities;
 
+import com.google.common.base.Objects;
+
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by Randy on 1/24/14.
@@ -19,14 +22,24 @@ public class User {
 	private String firstName;
 
 	@Basic
-	@Column(name="last_name")
+	@Column(name = "last_name")
 	private String lastName;
 
+//    @Email
 	@Basic
+    @Column(name = "email")
 	private String email;
 
     @Basic
+    @Column(name = "password_hash")
     private String password;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
+
+    //todo add int failedLogis, Date lockedOut, Date expireDate
 
 	public Long getId() {
 		return id;
@@ -68,14 +81,23 @@ public class User {
         this.password = password;
     }
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public String toString() {
-        return com.google.common.base.Objects.toStringHelper(this)
+        return Objects.toStringHelper(this)
                 .add("id", id)
                 .add("firstName", firstName)
                 .add("lastName", lastName)
                 .add("email", email)
                 .add("password", password)
+                .add("roles", roles)
                 .toString();
     }
 }
