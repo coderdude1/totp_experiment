@@ -67,7 +67,10 @@
                             <td>${user.lastName}, ${user.firstName}</td>
                             <td>${user.email}</td>
                             <td>
-                                <form action="delete/${user.id}" method="post"><input type="submit" class="btn btn-danger btn-mini" value="Delete"/></form>
+                                <form action="delete/${user.id}" method="post"><input type="submit" class="btn btn-danger btn-mini" value="Delete"/>
+                                    <input type="hidden"
+                                           name="${_csrf.parameterName}"
+                                           value="${_csrf.token}"/></form>
                             </td>
                         </tr>
                     </c:forEach>
