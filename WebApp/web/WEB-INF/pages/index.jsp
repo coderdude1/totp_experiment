@@ -20,7 +20,7 @@
   <body>
      <div class="container">
         <h1>${title}</h1>
-        <p><a href="/user/">User Management</a>&nbsp</p>
+        <p><a href="/useradmin/">User Management</a>&nbsp</p>
         <p><a href="/user/">Edit Your Preferences</a>&nbsp</p>
       </div>
   </body>
