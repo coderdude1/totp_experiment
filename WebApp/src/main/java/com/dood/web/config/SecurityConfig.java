@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.sql.DataSource;
+
 /**
  * http://docs.spring.io/spring-security/site/docs/3.2.x/guides/hellomvc.html
  *
@@ -22,9 +24,19 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     private UserService userService;
 
     @Autowired
+    DataSource dataSource;
+
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-            .withUser("user").password("password").roles("USER");
+//        auth.inMemoryAuthentication()
+//            .withUser("user").password("password").roles("USER");
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .usersByUsernameQuery(
+                        "select email, password_hash, enabled from users where email=?")
+                .authoritiesByUsernameQuery(
+                        "select u.email, r.role from users u join user_role ur on u.id = ur.user_id "
+                       +" join roles r on ur.role_id = r.id where email=?")
+                .passwordEncoder(passwordEncoder());
     }
 
     @Bean

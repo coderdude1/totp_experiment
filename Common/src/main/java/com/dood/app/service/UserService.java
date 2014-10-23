@@ -9,6 +9,8 @@ import java.util.List;
  */
 public interface UserService {
     List<User> findAll();
+
+    User getByLogin(String email);
     void createUser(User user);
     void deleteUser(User user);
     void updateUser(User user);
