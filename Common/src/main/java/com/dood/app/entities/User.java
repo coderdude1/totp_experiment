@@ -1,6 +1,6 @@
 package com.dood.app.entities;
 
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -29,6 +29,10 @@ public class User {
 	@Basic
     @Column(name = "email")
 	private String email;
+
+    @Basic
+    @Column(name = "enabled")
+    private boolean enabled;
 
     @Basic
     @Column(name = "password_hash")
@@ -73,6 +77,14 @@ public class User {
 		this.email = email;
 	}
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -91,11 +103,12 @@ public class User {
 
     @Override
     public String toString() {
-        return Objects.toStringHelper(this)
+        return MoreObjects.toStringHelper(this)
                 .add("id", id)
                 .add("firstName", firstName)
                 .add("lastName", lastName)
                 .add("email", email)
+                .add("enabled", enabled)
                 .add("password", password)
                 .add("roles", roles)
                 .toString();

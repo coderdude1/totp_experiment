@@ -13,6 +13,7 @@
     <%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Resources/css/style1.css" />--%>
     <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.js"></script>
 
 
     <%--<link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">--%>
@@ -21,7 +22,7 @@
      <div class="container">
         <h1>${title}</h1>
         <p><a href="/useradmin/">User Management</a>&nbsp</p>
-        <p><a href="/user/">Edit Your Preferences</a>&nbsp</p>
+        <p><a href="/userprefs/">Edit Your Preferences</a>&nbsp</p>
       </div>
   </body>
 </html>
