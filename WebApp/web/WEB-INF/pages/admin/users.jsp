@@ -27,30 +27,30 @@
         <div class="span8 offset2">
             <h1>User Management</h1>
             <form:form method="post" action="add" commandName="user" class="form-horizontal">
-            <div class="control-group">
-                <form:label cssClass="control-label" path="firstName">First Name:</form:label>
-                <div class="controls">
-                    <form:input path="firstName"/>
+                <div class="control-group">
+                    <form:label cssClass="control-label" path="firstName">First Name:</form:label>
+                    <div class="controls">
+                        <form:input path="firstName"/>
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <form:label cssClass="control-label" path="lastName">Last Name:</form:label>
-                <div class="controls">
-                    <form:input path="lastName"/>
+                <div class="control-group">
+                    <form:label cssClass="control-label" path="lastName">Last Name:</form:label>
+                    <div class="controls">
+                        <form:input path="lastName"/>
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <form:label cssClass="control-label" path="email">Email:</form:label>
-                <div class="controls">
-                    <form:input path="email"/>
+                <div class="control-group">
+                    <form:label cssClass="control-label" path="email">Email:</form:label>
+                    <div class="controls">
+                        <form:input path="email"/>
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <input type="submit" value="Add User" class="btn"/>
-                    </form:form>
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="submit" value="Add User" class="btn"/>
+                    </div>
                 </div>
-            </div>
+            </form:form>
 
             <c:if test="${!empty users}">
                 <h3>Users</h3>
