@@ -12,11 +12,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
     private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
 
-    @RequestMapping(value="/", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String defaultHandler(ModelMap model) {
-        LOG.info("in default handler");
-        model.addAttribute("title", "Dashboard");
+        LOG.info("in default/login handler");
+//        model.addAttribute("title", "Dashboard");
+//route to login
+        return "index";
+    }
+
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+    public String getDashboard(ModelMap modelMap) {
+        LOG.info("in dashboard handler");
+        modelMap.addAttribute("title", "Dashboard");
 
         return "index";
     }
 }
+

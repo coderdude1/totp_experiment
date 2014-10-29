@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -15,14 +16,35 @@
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
     <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.js"></script>
 
-
     <%--<link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">--%>
 </head>
-  <body>
-     <div class="container">
-        <h1>${title}</h1>
-        <p><a href="/useradmin/">User Management</a>&nbsp</p>
-        <p><a href="/userprefs/">Edit Your Preferences</a>&nbsp</p>
-      </div>
-  </body>
+<body>
+  <div class="container">
+      <%--<sec:authentication var="principal" property="principal" />--%>
+      <h1>${title}</h1>
+      <%--<p>Logged in as ${principal.username}</p>--%>
+      <p>Logged in as ${pageContext.request.userPrincipal.name}.</p>
+      <c:url value="/j_spring_security_logout" var="logoutUrl" />
+      <form action="${logoutUrl}" method="post" id="logoutForm">
+          <input type="hidden" name="${_csrf.parameterName}"
+                 value="${_csrf.token}" />
+      </form>
+      <script>
+          function formSubmit() {
+              document.getElementById("logoutForm").submit();
+          }
+      </script>
+      <c:if test="${pageContext.request.userPrincipal.name != null}">
+          <h2>
+              Welcome : ${pageContext.request.userPrincipal.name} | <a
+                  href="javascript:formSubmit()"> Logout</a>
+          </h2>
+      </c:if>
+
+      <sec:authorize access="hasRole('ADMIN')">>   <%--url="/admin">--%>
+            <p><a href="/useradmin/">User Management</a>&nbsp</p>
+      </sec:authorize>
+      <p><a href="/userprefs/">Edit Your Preferences</a>&nbsp</p>
+  </div>
+</body>
 </html>
