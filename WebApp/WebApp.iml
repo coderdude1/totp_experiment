@@ -16,7 +16,14 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/dood/web/config/SecurityConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/dood/web/config/SpringConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/dood/web/config/WebConfig.java</file>
+          <file>file://$MODULE_DIR$/../Common/src/main/java/com/dood/app/config/CoreConfig.java</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
