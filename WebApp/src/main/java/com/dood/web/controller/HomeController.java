@@ -12,13 +12,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
     private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String defaultHandler(ModelMap model) {
-        LOG.info("in default/login handler");
-//        model.addAttribute("title", "Dashboard");
-//route to login
+
+    @RequestMapping(value="/", method = RequestMethod.GET)
+    public String mainLanding() {
         return "index";
     }
+
+//    @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
+//    public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+//                              @RequestParam(value = "logout", required = false) String logout) {
+//        LOG.info("in default/login handler");
+////        model.addAttribute("title", "Dashboard");
+//        ModelAndView modelAndView = new ModelAndView();
+//        if(!Strings.isNullOrEmpty(error)) {
+//            modelAndView.addObject("error", "Invalid username or password");
+//        }
+//
+//        if (!Strings.isNullOrEmpty(logout)) {
+//            modelAndView.addObject("msg", "You have been successfully logged out");
+//        }
+//
+//        modelAndView.setViewName("login");
+////route to login
+//        return modelAndView;
+//    }
 
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String getDashboard(ModelMap modelMap) {
