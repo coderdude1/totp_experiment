@@ -13,16 +13,7 @@
     <list id="b5e71e51-7541-4467-b303-87b3ecd21606" name="Spring Security" comment="Spring Security working" />
     <list id="b5258363-779e-4758-be13-1758c009f67c" name="Database driven password and roles" comment="" />
     <list id="848ed163-94a7-4ad4-920b-dec65124df40" name="Failed commit: Database driven password and roles" comment="Database driven password and roles - not using db config yet but got most pieces in place" />
-    <list default="true" id="eb4f62ce-0701-437f-9729-5c7956e09cde" name="add user prefs edit, segreagate admin user functions" comment="changed role names, added more seuciryt stuff but that is not complete yet, ie no default login landing">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/controller/HomeController.java" afterPath="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/controller/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/config/SecurityConfig.java" afterPath="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/config/SecurityConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/src/main/resources/sql/V4__AddEnabledColumnToUser.sql" afterPath="$PROJECT_DIR$/Common/src/main/resources/sql/V4__AddEnabledColumnToUser.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/src/main/resources/sql/V5__UpdateRoleNamesToMatchConventions.sql" afterPath="$PROJECT_DIR$/Common/src/main/resources/sql/V5__UpdateRoleNamesToMatchConventions.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/config/WebConfig.java" afterPath="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/config/WebConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/src/main/resources/logback.xml" afterPath="$PROJECT_DIR$/WebApp/src/main/resources/logback.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="eb4f62ce-0701-437f-9729-5c7956e09cde" name="add user prefs edit, segreagate admin user functions" comment="added a custom login form, tweekd roles, enable default user">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SpringJpaExperiment.iws" />
@@ -1393,7 +1384,7 @@
       <workItem from="1414613352699" duration="657000" />
       <workItem from="1414626059198" duration="20000" />
       <workItem from="1414638826998" duration="452000" />
-      <workItem from="1414673520048" duration="8104000" />
+      <workItem from="1414673520048" duration="8191000" />
     </task>
     <task id="LOCAL-00010" summary="Add web view templating (thymeleaf?) to compose pages">
       <changelist id="e6f07f3e-8cac-4814-8d32-8b95d46064bb" name="Add web view templating (thymeleaf?) to compose pages" comment="" />
@@ -1423,12 +1414,16 @@
       <created>1414551471444</created>
       <updated>1414551471444</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="added a custom login form, tweekd roles, enable default user">
+      <created>1414707012533</created>
+      <updated>1414707012533</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <option name="createBranch" value="false" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200658000" />
+    <option name="totallyTimeSpent" value="200745000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1131" height="923" extended-state="0" />
@@ -1531,7 +1526,8 @@
     <MESSAGE value="enabled database driven authentication and role management for login, added edit user page (not functional yet)" />
     <MESSAGE value="Fix html layout" />
     <MESSAGE value="changed role names, added more seuciryt stuff but that is not complete yet, ie no default login landing" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed role names, added more seuciryt stuff but that is not complete yet, ie no default login landing" />
+    <MESSAGE value="added a custom login form, tweekd roles, enable default user" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a custom login form, tweekd roles, enable default user" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
