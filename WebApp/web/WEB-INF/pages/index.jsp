@@ -41,7 +41,7 @@
           </h2>
       </c:if>
 
-      <sec:authorize access="hasRole('ADMIN')">>   <%--url="/admin">--%>
+      <sec:authorize access="hasRole('ROLE_ADMIN')">>   <%--url="/admin">--%>
             <p><a href="/useradmin/">User Management</a>&nbsp</p>
       </sec:authorize>
       <p><a href="/userprefs/">Edit Your Preferences</a>&nbsp</p>

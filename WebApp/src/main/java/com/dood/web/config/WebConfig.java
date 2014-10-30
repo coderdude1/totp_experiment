@@ -3,6 +3,7 @@ package com.dood.web.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.*;
@@ -19,6 +20,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
             Charset.forName("utf8")
     );
 
+    //don't need a controller class for login
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/login").setViewName("login");
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+    }
     /**
      * @param configurer Servlet handler config
      */
