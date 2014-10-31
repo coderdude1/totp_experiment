@@ -13,7 +13,11 @@
     <list id="b5e71e51-7541-4467-b303-87b3ecd21606" name="Spring Security" comment="Spring Security working" />
     <list id="b5258363-779e-4758-be13-1758c009f67c" name="Database driven password and roles" comment="" />
     <list id="848ed163-94a7-4ad4-920b-dec65124df40" name="Failed commit: Database driven password and roles" comment="Database driven password and roles - not using db config yet but got most pieces in place" />
-    <list default="true" id="eb4f62ce-0701-437f-9729-5c7956e09cde" name="add user prefs edit, segreagate admin user functions" comment="added a custom login form, tweekd roles, enable default user">
+    <list default="true" id="eb4f62ce-0701-437f-9729-5c7956e09cde" name="add user prefs edit, segreagate admin user functions" comment="missed commit">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/config/SecurityConfig.java" afterPath="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/config/SecurityConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/login.jsp" afterPath="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/admin/users.jsp" afterPath="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/admin/users.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SpringJpaExperiment.iws" />
@@ -44,6 +48,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="SecurityConfig.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/config/SecurityConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="213" max-vertical-offset="986">
+              <caret line="42" column="66" selection-start-line="42" selection-start-column="66" selection-end-line="42" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="HomeController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/controller/HomeController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -67,21 +81,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebApp/web/WEB-INF/pages/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9537815" vertical-offset="226" max-vertical-offset="952">
-              <caret line="40" column="15" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
+            <state vertical-scroll-proportion="-12.423077" vertical-offset="170" max-vertical-offset="952">
+              <caret line="29" column="42" selection-start-line="28" selection-start-column="10" selection-end-line="29" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.jsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="login.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebApp/web/WEB-INF/pages/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8076925" vertical-offset="784" max-vertical-offset="1479">
-              <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
+            <state vertical-scroll-proportion="1.2255814" vertical-offset="476" max-vertical-offset="1156">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsernamePasswordAuthenticationFilter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.2.5.RELEASE/spring-security-web-3.2.5.RELEASE-sources.jar!/org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="753" max-vertical-offset="2499">
+              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebApp/web/WEB-INF/pages/admin/users.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.884615" vertical-offset="392" max-vertical-offset="1649">
+              <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -125,7 +159,6 @@
         <option value="$PROJECT_DIR$/Common/src/main/java/com/dood/app/entities/User.java" />
         <option value="$PROJECT_DIR$/Common/src/main/java/com/dood/app/entities/Role.java" />
         <option value="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/controller/UserPreferencesController.java" />
-        <option value="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/admin/users.jsp" />
         <option value="$PROJECT_DIR$/Common/src/main/java/com/dood/app/service/PasswordService.java" />
         <option value="$PROJECT_DIR$/Common/src/main/java/com/dood/app/service/impl/PasswordServiceImpl.java" />
         <option value="$PROJECT_DIR$/Common/src/main/java/com/dood/app/config/CoreConfig.java" />
@@ -134,10 +167,11 @@
         <option value="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/config/WebConfig.java" />
         <option value="$PROJECT_DIR$/WebApp/src/main/resources/logback.xml" />
         <option value="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/controller/HomeController.java" />
-        <option value="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/config/SecurityConfig.java" />
-        <option value="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/login.jsp" />
         <option value="$PROJECT_DIR$/Common/src/main/resources/sql/V4__AddEnabledColumnToUser.sql" />
+        <option value="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/admin/users.jsp" />
+        <option value="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/config/SecurityConfig.java" />
         <option value="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/index.jsp" />
+        <option value="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/login.jsp" />
       </list>
     </option>
   </component>
@@ -233,7 +267,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1131" />
+    <option name="width" value="1168" />
     <option name="height" value="923" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -506,6 +540,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpringJpaExperiment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1384,7 +1436,7 @@
       <workItem from="1414613352699" duration="657000" />
       <workItem from="1414626059198" duration="20000" />
       <workItem from="1414638826998" duration="452000" />
-      <workItem from="1414673520048" duration="8191000" />
+      <workItem from="1414673520048" duration="13435000" />
     </task>
     <task id="LOCAL-00010" summary="Add web view templating (thymeleaf?) to compose pages">
       <changelist id="e6f07f3e-8cac-4814-8d32-8b95d46064bb" name="Add web view templating (thymeleaf?) to compose pages" comment="" />
@@ -1418,15 +1470,19 @@
       <created>1414707012533</created>
       <updated>1414707012533</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="missed commit">
+      <created>1414707053536</created>
+      <updated>1414707053536</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <option name="createBranch" value="false" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200745000" />
+    <option name="totallyTimeSpent" value="205989000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1131" height="923" extended-state="0" />
+    <frame x="0" y="0" width="1168" height="923" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1451,7 +1507,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22556391" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996207" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28424975" sideWeight="0.4993679" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27477476" sideWeight="0.4993679" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869786" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1527,7 +1583,8 @@
     <MESSAGE value="Fix html layout" />
     <MESSAGE value="changed role names, added more seuciryt stuff but that is not complete yet, ie no default login landing" />
     <MESSAGE value="added a custom login form, tweekd roles, enable default user" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a custom login form, tweekd roles, enable default user" />
+    <MESSAGE value="missed commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="missed commit" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1550,12 +1607,6 @@
           <line>23</line>
           <properties />
           <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.2.5.RELEASE/spring-security-web-3.2.5.RELEASE-sources.jar!/org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.java</url>
-          <line>78</line>
-          <properties />
-          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="35" />
@@ -1722,13 +1773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/web/WEB-INF/pages/admin/users.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.423077" vertical-offset="560" max-vertical-offset="1666">
-          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Common/src/main/java/com/dood/app/service/PasswordService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
@@ -1826,14 +1870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/config/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="417" max-vertical-offset="935">
-          <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.2.5.RELEASE/spring-security-web-3.2.5.RELEASE-sources.jar!/org/springframework/security/web/authentication/logout/LogoutFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1192" max-vertical-offset="2516">
@@ -1874,14 +1910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/controller/UserPreferencesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.2.5.RELEASE/spring-security-web-3.2.5.RELEASE-sources.jar!/org/springframework/security/web/authentication/AbstractAuthenticationProcessingFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.09663866" vertical-offset="5401" max-vertical-offset="7497">
@@ -1908,14 +1936,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.2.5.RELEASE/spring-security-web-3.2.5.RELEASE-sources.jar!/org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31790745" vertical-offset="1015" max-vertical-offset="2499">
-          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Common/src/main/resources/sql/V3__CreateDefaultAdmin.sql">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
@@ -1938,18 +1958,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/web/WEB-INF/pages/login.jsp">
+    <entry file="file://$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/controller/UserPreferencesController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8076925" vertical-offset="784" max-vertical-offset="1479">
-          <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/web/WEB-INF/pages/admin/users.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.884615" vertical-offset="392" max-vertical-offset="1649">
+          <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="986">
+          <caret line="42" column="66" selection-start-line="42" selection-start-column="66" selection-end-line="42" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.2.5.RELEASE/spring-security-web-3.2.5.RELEASE-sources.jar!/org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="753" max-vertical-offset="2499">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/web/WEB-INF/pages/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9537815" vertical-offset="226" max-vertical-offset="952">
-          <caret line="40" column="15" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
+        <state vertical-scroll-proportion="-12.423077" vertical-offset="170" max-vertical-offset="952">
+          <caret line="29" column="42" selection-start-line="28" selection-start-column="10" selection-end-line="29" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/web/WEB-INF/pages/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2255814" vertical-offset="476" max-vertical-offset="1156">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding />
         </state>
       </provider>
