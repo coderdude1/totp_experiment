@@ -1,81 +1,62 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Login Page</title>
-    <style>
-        .error {
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid transparent;
-            border-radius: 4px;
-            color: #a94442;
-            background-color: #f2dede;
-            border-color: #ebccd1;
-        }
+    <%-- This stuff should be pulled into  a template --%>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Resources/css/style1.css" />--%>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.js"></script>
+    <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
 
-        .msg {
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid transparent;
-            border-radius: 4px;
-            color: #31708f;
-            background-color: #d9edf7;
-            border-color: #bce8f1;
-        }
-
-        #login-box {
-            width: 300px;
-            padding: 20px;
-            margin: 100px auto;
-            background: #fff;
-            -webkit-border-radius: 2px;
-            -moz-border-radius: 2px;
-            border: 1px solid #000;
-        }
-    </style>
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-<h1>Login Required</h1>
+<%--<h1>Login Required</h1>--%>
 
 <div id="login-box">
-
-    <h3>Login with Username and Password</h3>
 
     <c:if test="${param.logout != null}}">
         <div class="error">You have been logged out</div>
     </c:if>
-    <%--<c:if test="${not empty msg}">--%>
     <c:if test="${param.error != null}}">
         <div class="msg">Invalid Username/Password</div>
     </c:if>
 
-    <form name='loginForm'
-          <%--action="<c:url value='j_spring_security_check' />" method='POST'>--%>
-          action="<c:url value='/login' />" method='POST'>
+<%-- http://bootsnipp.com/tags/3.2.0 --%>
+    <div class="container" style="margin-top:30px">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3 class="panel-title"><strong>Sign In </strong></h3></div>
+                <div class="panel-body">
+                    <form role="form" name="loginForm" action="/login" method="post">
+                        <div class="form-group">
+                            <label for="username">Username or Email</label>
+                            <input type="text" class="form-control" name='username' id="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password <a href="/sessions/forgot_password">(forgot password)</a></label>
+                            <input type="password" class="form-control" name='password' id="password" placeholder="Password">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                            </label>
+                        </div>
 
-        <table>
-            <tr>
-                <td>User:</td>
-                <td><input type='text' name='username' value=''></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input type='password' name='password' /></td>
-            </tr>
-            <tr>
-                <td colspan='2'>
-                    <input name="submit" type="submit" value="submit" />
-                </td>
-            </tr>
-        </table>
-
-        <input type="hidden"
-               name="${_csrf.parameterName}" value="${_csrf.token}" />
-    </form>
+                        <button type="submit" class="btn btn-sm btn-default">Sign in</button>
+                        <input type="hidden" name="${_csrf.parameterName}"
+                               value="${_csrf.token}" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
 </div>
-
 </body>
 </html>
 
