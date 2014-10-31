@@ -18,25 +18,6 @@ public class HomeController {
         return "index";
     }
 
-//    @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
-//    public ModelAndView login(@RequestParam(value = "error", required = false) String error,
-//                              @RequestParam(value = "logout", required = false) String logout) {
-//        LOG.info("in default/login handler");
-////        model.addAttribute("title", "Dashboard");
-//        ModelAndView modelAndView = new ModelAndView();
-//        if(!Strings.isNullOrEmpty(error)) {
-//            modelAndView.addObject("error", "Invalid username or password");
-//        }
-//
-//        if (!Strings.isNullOrEmpty(logout)) {
-//            modelAndView.addObject("msg", "You have been successfully logged out");
-//        }
-//
-//        modelAndView.setViewName("login");
-////route to login
-//        return modelAndView;
-//    }
-
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String getDashboard(ModelMap modelMap) {
         LOG.info("in dashboard handler");
