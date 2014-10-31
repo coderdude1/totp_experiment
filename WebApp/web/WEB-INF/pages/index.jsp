@@ -16,35 +16,36 @@
     <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
 
+
     <%--<link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">--%>
 </head>
 <body>
-  <div class="container">
-      <%--<sec:authentication var="principal" property="principal" />--%>
-      <h1>${title}</h1>
-      <%--<p>Logged in as ${principal.username}</p>--%>
-      <p>Logged in as ${pageContext.request.userPrincipal.name}.</p>
-      <c:url value="/j_spring_security_logout" var="logoutUrl" />
-      <form action="${logoutUrl}" method="post" id="logoutForm">
-          <input type="hidden" name="${_csrf.parameterName}"
-                 value="${_csrf.token}" />
-      </form>
-      <script>
-          function formSubmit() {
-              document.getElementById("logoutForm").submit();
-          }
-      </script>
-      <c:if test="${pageContext.request.userPrincipal.name != null}">
-          <h2>
-              Welcome : ${pageContext.request.userPrincipal.name} | <a
-                  href="javascript:formSubmit()"> Logout</a>
-          </h2>
-      </c:if>
+<div class="container">
+    <%--<sec:authentication var="principal" property="principal" />--%>
+    <h1>${title}</h1>
+    <c:url value="/logout" var="logoutUrl"/>
+    <form style="visibility: hidden" action="${logoutUrl}" method="post" id="logoutForm">
+        <input type="hidden" name="${_csrf.parameterName}"
+               value="${_csrf.token}"/>
+    </form>
+    <h3>
+        Welcome ${pageContext.request.userPrincipal.name}
+    </h3>
 
-      <sec:authorize access="hasRole('ROLE_ADMIN')">>   <%--url="/admin">--%>
-            <p><a href="/useradmin/">User Management</a>&nbsp</p>
-      </sec:authorize>
-      <p><a href="/userprefs/">Edit Your Preferences</a>&nbsp</p>
-  </div>
+    <p>Things you can do</p>
+    <a href="javascript:performLogout()">Logout</a>
+
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+        <p><a href="/useradmin/">User Management</a>&nbsp</p>
+    </sec:authorize>
+    <p><a href="/userprefs/">Edit Your Preferences</a>&nbsp</p>
+</div>
+
+<script>
+    function performLogout() {
+        <%--${"#logoutForm"}.submit(); for some reason jqueyr doesn't work, the $ gets stripped--%>
+        document.getElementById("logoutForm").submit();
+    }
+</script>
 </body>
 </html>
