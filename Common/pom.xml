@@ -76,6 +76,14 @@
             <version>1.9</version>
         </dependency>
 
+        <!-- QR Code Generation -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+
         <!-- needed for h2 tests, exclude in ClientApp -->
         <dependency>
             <groupId>org.flywaydb</groupId>
