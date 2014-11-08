@@ -27,7 +27,8 @@ import java.util.Properties;
  */
 @Configuration
 @EnableJpaRepositories(basePackages = {"com.dood.app.entities", "com.dood.app.dao"})
-@ComponentScan(basePackages = {"com.dood.app.service", "com.dood.app.service.impl", "com.dood.app.dao"})
+@ComponentScan(basePackages = {"com.dood.app.service", "com.dood.app.service.impl",
+                                "com.dood.app.dao", "com.dood.app.multifactorauth"})
 @EnableTransactionManagement
 //@Import({x.class, y.class})
 public class CoreConfig {
@@ -75,7 +76,7 @@ public class CoreConfig {
     public Flyway createFlyway() {
         Flyway flyway = new Flyway();
         flyway.setDataSource(dataSource());
-        flyway.setLocations("sql");//todo add java based migration dir
+        flyway.setLocations("sql/common, sql/postgresql");//todo add java based migration dir
         return flyway;
     }
 

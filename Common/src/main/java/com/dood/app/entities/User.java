@@ -38,6 +38,10 @@ public class User {
     @Column(name = "password_hash")
     private String password;
 
+    @Basic
+    @Column(name = "totp_secret")
+    private String totpSecret;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -93,6 +97,14 @@ public class User {
         this.password = password;
     }
 
+    public String getTotpSecret() {
+        return totpSecret;
+    }
+
+    public void setTotpSecret(String totpSecret) {
+        this.totpSecret = totpSecret;
+    }
+
     public Set<Role> getRoles() {
         return roles;
     }
@@ -110,6 +122,7 @@ public class User {
                 .add("email", email)
                 .add("enabled", enabled)
                 .add("password", password)
+                .add("totpSecret", totpSecret)
                 .add("roles", roles)
                 .toString();
     }
