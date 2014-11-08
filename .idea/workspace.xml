@@ -9,12 +9,7 @@
     <list id="8b6b134e-96d0-4b4c-b57e-762810722da9" name="Default" comment="" />
     <list id="e6f07f3e-8cac-4814-8d32-8b95d46064bb" name="Add web view templating (thymeleaf?) to compose pages" comment="" />
     <list id="7edce02d-6e0d-4eee-8104-322944616946" name="add responsive bootstrap" comment="" />
-    <list default="true" id="eb4f62ce-0701-437f-9729-5c7956e09cde" name="add user prefs edit, segreagate admin user functions" comment="Got basic google IETF impl of 2 factor auth libs working, added h2 vs postgresql specific db migrations">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Common/src/main/java/com/dood/app/utils/QrCodeGenerator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Common/src/test/java/com/dood/app/utils/QrCodeGeneratorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/Common.iml" afterPath="$PROJECT_DIR$/Common/Common.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/WebApp.iml" afterPath="$PROJECT_DIR$/WebApp/WebApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/pom.xml" afterPath="$PROJECT_DIR$/Common/pom.xml" />
+    <list default="true" id="eb4f62ce-0701-437f-9729-5c7956e09cde" name="add user prefs edit, segreagate admin user functions" comment="Added QR Code generation for loading the secret into android Google Auth">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SpringJpaExperiment.iws" />
@@ -1289,7 +1284,7 @@
       <workItem from="1415407090586" duration="546000" />
       <workItem from="1415407659612" duration="6576000" />
       <workItem from="1415456366516" duration="574000" />
-      <workItem from="1415463205548" duration="10185000" />
+      <workItem from="1415463205548" duration="10270000" />
     </task>
     <task id="LOCAL-00010" summary="Add web view templating (thymeleaf?) to compose pages">
       <changelist id="e6f07f3e-8cac-4814-8d32-8b95d46064bb" name="Add web view templating (thymeleaf?) to compose pages" comment="" />
@@ -1361,12 +1356,18 @@
       <option name="project" value="LOCAL" />
       <updated>1415420143676</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added QR Code generation for loading the secret into android Google Auth">
+      <created>1415480461107</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1415480461107</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <option name="createBranch" value="false" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="264370000" />
+    <option name="totallyTimeSpent" value="264455000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1306" height="923" extended-state="0" />
@@ -1450,7 +1451,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Init" />
     <MESSAGE value="some cleanup to get unit tests working" />
     <MESSAGE value="Got the webapp working, ie the spring context is loading now" />
     <MESSAGE value="got the spring mvc stuff wired in, it loads but the controller doesn't interecept yet" />
@@ -1475,7 +1475,8 @@
     <MESSAGE value="bootstrapped login page, looks much nicer" />
     <MESSAGE value="Got logout working, code cleanup, minor ui tweeks" />
     <MESSAGE value="Got basic google IETF impl of 2 factor auth libs working, added h2 vs postgresql specific db migrations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got basic google IETF impl of 2 factor auth libs working, added h2 vs postgresql specific db migrations" />
+    <MESSAGE value="Added QR Code generation for loading the secret into android Google Auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added QR Code generation for loading the secret into android Google Auth" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
