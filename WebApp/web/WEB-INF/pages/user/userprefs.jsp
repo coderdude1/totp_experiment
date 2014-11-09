@@ -22,35 +22,44 @@
 
 <body>
 
-<div class="container">
-    <div class="row">
-        <div class="span8 offset2">
-            <h1>User Management</h1>
-            <form:form method="post" action="add" commandName="user" class="form-horizontal">
-                <div class="control-group">
-                    <form:label cssClass="control-label" path="firstName">First Name:</form:label>
-                    <div class="controls">
-                        <form:input path="firstName"/>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <form:label cssClass="control-label" path="lastName">Last Name:</form:label>
-                    <div class="controls">
-                        <form:input path="lastName"/>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <form:label cssClass="control-label" path="email">Email:</form:label>
-                    <div class="controls">
-                        <form:input path="email"/>
-                    </div>
-                </div>
-                <div class="control-group">
-                <div class="controls">
-                    <input type="submit" value="Edit User" class="btn"/>
-             </form:form>
-    </div>
-</div>
+    <div class="container">
+        <div class="row">
 
+            <h1>User Management</h1>
+
+        <%--<divclass="span8 offset2">--%>
+            <form:form method="post" action="add" commandName="user" class="form-horizontal">
+                <div class="col-xs-6">
+                    <div class="control-group">
+                        <form:label cssClass="control-label" path="firstName">First Name:</form:label>
+                        <div class="controls">
+                            <form:input path="firstName"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <form:label cssClass="control-label" path="lastName">Last Name:</form:label>
+                        <div class="controls">
+                            <form:input path="lastName"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <form:label cssClass="control-label" path="email">Email:</form:label>
+                        <div class="controls">
+                            <form:input path="email"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <p />
+                        <div class="controls">
+                            <input type="submit" value="Edit User" class="btn btn-success"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <p>some text bla balh albh</p>
+                </div>
+            </form:form>
+    <%--</div>--%>
+        </div>
 </body>
 </html>

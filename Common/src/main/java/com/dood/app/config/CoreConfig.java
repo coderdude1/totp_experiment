@@ -76,7 +76,7 @@ public class CoreConfig {
     public Flyway createFlyway() {
         Flyway flyway = new Flyway();
         flyway.setDataSource(dataSource());
-        flyway.setLocations("sql/common, sql/postgresql");//todo add java based migration dir
+        flyway.setLocations("sql/common", "sql/postgresql");//todo add java based migration dir
         return flyway;
     }
 
@@ -89,11 +89,4 @@ public class CoreConfig {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder;
     }
-
- /*
-       <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
-        <property name="dataSource" ref="dbDataSource"/>
-        <property name="locations" value="sql" />
-    </bean>
-     */
 }

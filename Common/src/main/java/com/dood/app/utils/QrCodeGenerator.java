@@ -6,6 +6,8 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -18,8 +20,12 @@ import java.util.Hashtable;
  * Generic class to create a QR code
  */
 public class QrCodeGenerator {
-    public static final String authCodeUrl = "otpauth://totp/%s@%s%%3Fsecret%%3D%s";
+    private static final Logger log = LoggerFactory.getLogger(QrCodeGenerator.class);
+
     private static final String OTP_AUTH_TOTP_URI_BASE = "otpauth://totp/%s?secret=%s";
+
+    private int height = 125;
+    private int width = 125;
 
     public void generateTwoFactorAuthQrCode(String host, String secret, File qrFile) {
         String otpUrl = String.format(OTP_AUTH_TOTP_URI_BASE, host, secret);
@@ -27,13 +33,12 @@ public class QrCodeGenerator {
     }
 
     public void generateQrCode(String stuffToEncode, File qrFile) {
-        int size = 125;
         String fileType = "png";
         try {
             Hashtable<EncodeHintType, ErrorCorrectionLevel> hintMap = new Hashtable<EncodeHintType, ErrorCorrectionLevel>();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
             QRCodeWriter qrCodeWriter = new QRCodeWriter();
-            BitMatrix byteMatrix = qrCodeWriter.encode(stuffToEncode, BarcodeFormat.QR_CODE, size, size, hintMap);
+            BitMatrix byteMatrix = qrCodeWriter.encode(stuffToEncode, BarcodeFormat.QR_CODE, width, height, hintMap);
             int qrCodeWidth = byteMatrix.getWidth();
             BufferedImage image = new BufferedImage(qrCodeWidth, qrCodeWidth,
                     BufferedImage.TYPE_INT_RGB);
@@ -57,6 +62,22 @@ public class QrCodeGenerator {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("\n\nYou have successfully created QR Code.");
+        log.info("QR Code Created.  height: {} widht: {} stuffToEncode: {} ", height, width, stuffToEncode);
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
     }
 }
