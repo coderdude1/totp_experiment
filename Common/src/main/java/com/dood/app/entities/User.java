@@ -3,6 +3,7 @@ package com.dood.app.entities;
 import com.google.common.base.MoreObjects;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -41,6 +42,14 @@ public class User {
     @Basic
     @Column(name = "totp_secret")
     private String totpSecret;
+
+    @Basic
+    @Column(name = "totp_secret_create_date")
+    private Date totpSecretDate;
+
+    @Basic
+    @Column(name = "two_factor_auth_enabled")
+    private boolean twoFactorAuthEnabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
@@ -105,6 +114,22 @@ public class User {
         this.totpSecret = totpSecret;
     }
 
+    public Date getTotpSecretDate() {
+        return totpSecretDate;
+    }
+
+    public void setTotpSecretDate(Date totpSecretDate) {
+        this.totpSecretDate = totpSecretDate;
+    }
+
+    public boolean isTwoFactorAuthEnabled() {
+        return twoFactorAuthEnabled;
+    }
+
+    public void setTwoFactorAuthEnabled(boolean twoFactorAuthEnabled) {
+        this.twoFactorAuthEnabled = twoFactorAuthEnabled;
+    }
+
     public Set<Role> getRoles() {
         return roles;
     }
@@ -123,6 +148,8 @@ public class User {
                 .add("enabled", enabled)
                 .add("password", password)
                 .add("totpSecret", totpSecret)
+                .add("totpSecretDate", totpSecretDate)
+                .add("twoFactorAuthEnabled", twoFactorAuthEnabled)
                 .add("roles", roles)
                 .toString();
     }

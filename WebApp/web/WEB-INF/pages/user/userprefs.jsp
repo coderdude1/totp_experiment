@@ -56,7 +56,14 @@
                     </div>
                 </div>
                 <div class="col-xs-6">
-                    <p>some text bla balh albh</p>
+                    <c:choose>
+                        <c:when test="${user.twoFactorAuthEnabled}">
+                            <p>Shared Secret to enter into Google Authenticator: ${user.totpSecret}</p>
+                        </c:when>
+                        <c:otherwise>
+                            <p><a class="btn btn-success" href="/userprefs/enableTwoFactorAuth">Enable Two Factor Auth</a></p>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </form:form>
     <%--</div>--%>
