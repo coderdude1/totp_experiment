@@ -8,6 +8,7 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -19,6 +20,7 @@ import java.util.Hashtable;
 /**
  * Generic class to create a QR code
  */
+@Service
 public class QrCodeGenerator {
     private static final Logger log = LoggerFactory.getLogger(QrCodeGenerator.class);
 
@@ -32,30 +34,15 @@ public class QrCodeGenerator {
         generateQrCode(otpUrl, qrFile);
     }
 
+    /**
+     * Populates the qrFile with a QR code png image
+     * @param stuffToEncode
+     * @param qrFile
+     */
     public void generateQrCode(String stuffToEncode, File qrFile) {
         String fileType = "png";
         try {
-            Hashtable<EncodeHintType, ErrorCorrectionLevel> hintMap = new Hashtable<EncodeHintType, ErrorCorrectionLevel>();
-            hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
-            QRCodeWriter qrCodeWriter = new QRCodeWriter();
-            BitMatrix byteMatrix = qrCodeWriter.encode(stuffToEncode, BarcodeFormat.QR_CODE, width, height, hintMap);
-            int qrCodeWidth = byteMatrix.getWidth();
-            BufferedImage image = new BufferedImage(qrCodeWidth, qrCodeWidth,
-                    BufferedImage.TYPE_INT_RGB);
-            image.createGraphics();
-
-            Graphics2D graphics = (Graphics2D) image.getGraphics();
-            graphics.setColor(Color.WHITE);
-            graphics.fillRect(0, 0, qrCodeWidth, qrCodeWidth);
-            graphics.setColor(Color.BLACK);
-
-            for (int i = 0; i < qrCodeWidth; i++) {
-                for (int j = 0; j < qrCodeWidth; j++) {
-                    if (byteMatrix.get(i, j)) {
-                        graphics.fillRect(i, j, 1, 1);
-                    }
-                }
-            }
+            BufferedImage image = createQrImage(stuffToEncode);
             ImageIO.write(image, fileType, qrFile);
         } catch (WriterException e) {
             e.printStackTrace();
@@ -63,6 +50,37 @@ public class QrCodeGenerator {
             e.printStackTrace();
         }
         log.info("QR Code Created.  height: {} widht: {} stuffToEncode: {} ", height, width, stuffToEncode);
+    }
+
+    /**
+     * Returns a bufferedImage containing the contents of the QRCode.
+     * @param stuffToEncode
+     * @return
+     * @throws WriterException
+     */
+    public BufferedImage createQrImage(String stuffToEncode) throws WriterException {
+        Hashtable<EncodeHintType, ErrorCorrectionLevel> hintMap = new Hashtable<EncodeHintType, ErrorCorrectionLevel>();
+        hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        BitMatrix byteMatrix = qrCodeWriter.encode(stuffToEncode, BarcodeFormat.QR_CODE, width, height, hintMap);
+        int qrCodeWidth = byteMatrix.getWidth();
+        BufferedImage image = new BufferedImage(qrCodeWidth, qrCodeWidth,
+                BufferedImage.TYPE_INT_RGB);
+        image.createGraphics();
+
+        Graphics2D graphics = (Graphics2D) image.getGraphics();
+        graphics.setColor(Color.WHITE);
+        graphics.fillRect(0, 0, qrCodeWidth, qrCodeWidth);
+        graphics.setColor(Color.BLACK);
+
+        for (int i = 0; i < qrCodeWidth; i++) {
+            for (int j = 0; j < qrCodeWidth; j++) {
+                if (byteMatrix.get(i, j)) {
+                    graphics.fillRect(i, j, 1, 1);
+                }
+            }
+        }
+        return image;
     }
 
     public int getHeight() {
