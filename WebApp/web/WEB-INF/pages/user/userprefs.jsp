@@ -24,7 +24,6 @@
 
     <div class="container">
         <div class="row">
-
             <h1>User Management</h1>
 
         <%--<divclass="span8 offset2">--%>
@@ -58,7 +57,9 @@
                 <div class="col-xs-6">
                     <c:choose>
                         <c:when test="${user.twoFactorAuthEnabled}">
-                            <p>Shared Secret to enter into Google Authenticator: ${user.totpSecret}</p>
+                            <p>Shared Secret to manually enter into Google Authenticator: ${user.totpSecret}</p>
+                            <p>or scan the QR code</p>
+                            <img src="/authSecretQrImages?userId=${user.id}"/>
                         </c:when>
                         <c:otherwise>
                             <p><a class="btn btn-success" href="/userprefs/enableTwoFactorAuth">Enable Two Factor Auth</a></p>
