@@ -32,7 +32,7 @@ public class UserPreferencesController {
         return "/user/userprefs";
     }
 
-    @RequestMapping(value = "/enableTwoFactorAuth", method = RequestMethod.GET)
+    @RequestMapping(value = "/generateTotpSecret", method = RequestMethod.GET)
     public String enableTwoFactorAuth(ModelMap model, Principal principal) {
         String secret = twoFactorAuthIetfRfc6238Utils.generateSharedSecret();
         String email = principal.getName();
@@ -44,4 +44,13 @@ public class UserPreferencesController {
         model.addAttribute("user", user);
         return "redirect:/userprefs/";
     }
+
+    /**
+     * At some point we may wanna pull this into a different rest endpoint
+     * once I add similar functionality to admin screen
+     */
+//    @RequestMapping(value = "/generateNewTotpSecret", method = RequestMethod.GET)
+//    public String generateNewTotpSecret(ModelMap model, Principal principal) {
+//
+//    }
 }

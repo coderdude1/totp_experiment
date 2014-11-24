@@ -52,6 +52,11 @@ public class QrCodeGenerator {
         log.info("QR Code Created.  height: {} widht: {} stuffToEncode: {} ", height, width, stuffToEncode);
     }
 
+    public BufferedImage createGoogleAuthQrCode(String host, String secret) throws WriterException {
+        String otpUrl = String.format(OTP_AUTH_TOTP_URI_BASE, host, secret);
+        return createQrImage(otpUrl);
+    }
+
     /**
      * Returns a bufferedImage containing the contents of the QRCode.
      * @param stuffToEncode

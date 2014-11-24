@@ -60,9 +60,12 @@
                             <p>Shared Secret to manually enter into Google Authenticator: ${user.totpSecret}</p>
                             <p>or scan the QR code</p>
                             <img src="/authSecretQrImages?userId=${user.id}"/>
+                            <p><a class="btn btn-success" href="/userprefs/generateTotpSecret">Regenerate Secret</a></p>
+
+
                         </c:when>
                         <c:otherwise>
-                            <p><a class="btn btn-success" href="/userprefs/enableTwoFactorAuth">Enable Two Factor Auth</a></p>
+                            <p><a class="btn btn-success" href="/userprefs/generateTotpSecret">Enable Two Factor Auth</a></p>
                         </c:otherwise>
                     </c:choose>
                 </div>

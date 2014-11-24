@@ -47,7 +47,7 @@ public class AuthSecretQrCodeImageGenerator extends HttpServlet {
         BufferedImage bi = null;
         try {
             User user = userDao.findOne(userId);
-            bi = qrCodeGenerator.createQrImage(user.getTotpSecret());
+            bi = qrCodeGenerator.createGoogleAuthQrCode("Randy Figuring It Out", user.getTotpSecret());
         } catch (WriterException e) {
             e.printStackTrace();
         }
