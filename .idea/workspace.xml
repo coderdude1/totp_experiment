@@ -9,11 +9,8 @@
     <list id="8b6b134e-96d0-4b4c-b57e-762810722da9" name="Default" comment="" />
     <list id="e6f07f3e-8cac-4814-8d32-8b95d46064bb" name="Add web view templating (thymeleaf?) to compose pages" comment="" />
     <list id="7edce02d-6e0d-4eee-8104-322944616946" name="add responsive bootstrap" comment="" />
-    <list default="true" id="eb4f62ce-0701-437f-9729-5c7956e09cde" name="add user prefs edit, segreagate admin user functions" comment="Add qr code to user edit prefs via an image servlet">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/servlet/AuthSecretQrCodeImageGenerator.java" afterPath="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/servlet/AuthSecretQrCodeImageGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/src/main/java/com/dood/app/utils/QrCodeGenerator.java" afterPath="$PROJECT_DIR$/Common/src/main/java/com/dood/app/utils/QrCodeGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/controller/UserPreferencesController.java" afterPath="$PROJECT_DIR$/WebApp/src/main/java/com/dood/web/controller/UserPreferencesController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/user/userprefs.jsp" afterPath="$PROJECT_DIR$/WebApp/web/WEB-INF/pages/user/userprefs.jsp" />
+    <list default="true" id="eb4f62ce-0701-437f-9729-5c7956e09cde" name="add user prefs edit, segreagate admin user functions" comment="Allow user to regenerate a new shared secret">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebApp/web/js/jquery-1.11.1.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SpringJpaExperiment.iws" />
@@ -1342,7 +1339,7 @@
       <workItem from="1415981001639" duration="3754000" />
       <workItem from="1416413364701" duration="52000" />
       <workItem from="1416492435890" duration="4518000" />
-      <workItem from="1416845345982" duration="336000" />
+      <workItem from="1416845345982" duration="535000" />
     </task>
     <task id="LOCAL-00010" summary="Add web view templating (thymeleaf?) to compose pages">
       <changelist id="e6f07f3e-8cac-4814-8d32-8b95d46064bb" name="Add web view templating (thymeleaf?) to compose pages" comment="" />
@@ -1444,12 +1441,18 @@
       <option name="project" value="LOCAL" />
       <updated>1415939334165</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Allow user to regenerate a new shared secret">
+      <created>1416856421321</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1416856421321</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <option name="createBranch" value="false" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="319733000" />
+    <option name="totallyTimeSpent" value="319932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1354" height="923" extended-state="0" />
@@ -1458,6 +1461,7 @@
       <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31605563" sideWeight="0.4989796" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996207" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1481,7 +1485,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27686474" sideWeight="0.49759614" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996207" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39949432" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869786" sideWeight="0.4991987" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932693" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -1534,7 +1537,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Added scan to find the controller, now the controller gets hit on a webrequest" />
     <MESSAGE value="config cleanup,, added context.xml with local db connection info" />
     <MESSAGE value="wired in commons,  read the application-context.xml via the java-config.  for some reason maven is not deploying the deps needed for commons into the webapp lib dir" />
     <MESSAGE value="got artifact definition configured to read in commons deps into webapp" />
@@ -1559,7 +1561,8 @@
     <MESSAGE value="QR Code generator tweeks, bootstrap fixes for user prefs, add isTwoFactorAuthEnabled to db for a user" />
     <MESSAGE value="added option to enable 2 factor auth, generate and display the code.  still need to add teh QR code, regenerate a new number, disable 2 factor auth on user prefs screen.  need to add some similar stuff to admin screen" />
     <MESSAGE value="Add qr code to user edit prefs via an image servlet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add qr code to user edit prefs via an image servlet" />
+    <MESSAGE value="Allow user to regenerate a new shared secret" />
+    <option name="LAST_COMMIT_MESSAGE" value="Allow user to regenerate a new shared secret" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
