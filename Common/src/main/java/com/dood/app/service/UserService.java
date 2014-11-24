@@ -15,4 +15,5 @@ public interface UserService {
     void deleteUser(User user);
     void updateUser(User user);
     void deleteByUserId(Long id);
+    User assignTotpPassword(String email);
 }
