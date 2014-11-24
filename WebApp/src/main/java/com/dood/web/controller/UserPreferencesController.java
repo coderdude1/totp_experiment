@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.security.Principal;
-import java.util.Date;
 
 @Controller
 @RequestMapping("/userprefs/")
@@ -34,23 +33,9 @@ public class UserPreferencesController {
 
     @RequestMapping(value = "/generateTotpSecret", method = RequestMethod.GET)
     public String enableTwoFactorAuth(ModelMap model, Principal principal) {
-        String secret = twoFactorAuthIetfRfc6238Utils.generateSharedSecret();
         String email = principal.getName();
-        User user = userService.getByLogin(email);
-        user.setTotpSecretDate(new Date());
-        user.setTotpSecret(secret);
-        user.setTwoFactorAuthEnabled(true);
-        userService.updateUser(user);
+        User user = userService.assignTotpPassword(email);
         model.addAttribute("user", user);
         return "redirect:/userprefs/";
     }
-
-    /**
-     * At some point we may wanna pull this into a different rest endpoint
-     * once I add similar functionality to admin screen
-     */
-//    @RequestMapping(value = "/generateNewTotpSecret", method = RequestMethod.GET)
-//    public String generateNewTotpSecret(ModelMap model, Principal principal) {
-//
-//    }
 }
