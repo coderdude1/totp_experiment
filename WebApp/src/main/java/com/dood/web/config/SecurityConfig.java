@@ -1,7 +1,9 @@
 package com.dood.web.config;
 
 import com.dood.app.service.UserService;
+import com.dood.web.security.TwoFactorAuthSavedRequestAuthenticationHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -55,6 +57,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                         .permitAll()
                         .usernameParameter("username")
                         .passwordParameter("password")
+                        .successHandler(twoFactorAuthSavedRequestAuthenticationHandler())//Look at adding some variant of SavedRequestAwareAuthenticanSuccessHandler (custom, if 2factor is enabled, go to that page, otherwise to the requested page)
                 .and()
                     .logout()
                         .logoutUrl("/logout")
@@ -65,5 +68,11 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 //                .exceptionHandling().accessDeniedPage("/403")
 //                .and()
                     .csrf();
+    }
+
+    @Bean
+    public TwoFactorAuthSavedRequestAuthenticationHandler twoFactorAuthSavedRequestAuthenticationHandler() {
+        TwoFactorAuthSavedRequestAuthenticationHandler handler = new TwoFactorAuthSavedRequestAuthenticationHandler();
+        return handler;
     }
 }

@@ -41,7 +41,7 @@ public class TwoFactorAuthIetfRfc6238UtilsTest extends TestCase {
         assertEquals(otp, code);
         String codeStr = twoFactorAuthIetfRfc6238Utils.getCodeAsString(secret, timeInterval, 1);
         assertEquals("String", otpStr, codeStr);
-        log.info("timeslice=" + TwoFactorAuthIetfRfc6238Utils.getTimeIndex());
+        log.info("timeslice=" + twoFactorAuthIetfRfc6238Utils.getNowTimeIndex());
     }
 
 

@@ -11,6 +11,7 @@ import java.nio.ByteBuffer;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Date;
 
 /**
  * Utilities for the 2 factor auth as defined by IETF RFC 6238 and implemetend at least
@@ -35,26 +36,30 @@ public class TwoFactorAuthIetfRfc6238Utils {
     }
 
     /**
-     * Validates the user input code against the shared secret, and the current time index
+     * Validates the user input inputCode against the shared secret, and the current time index
      * with variance intervals around the current time index.  Intervals are 30 second chunks
-     * to match the client code generator
+     * to match the client inputCode generator
      *
      * @param secret
-     * @param code
+     * @param inputCode
      * @param timeIndex
      * @param variance - +/- number of variables to check around the current time interval
      * @return
      * @throws Exception
      */
-    public boolean verifyCode(String secret, int code, long timeIndex, int variance)
+    public boolean verifyCode(String secret, int inputCode, long timeIndex, int variance)
             throws Exception {
         byte[] secretBytes = new Base32().decode(secret);
         for (int i = -variance; i <= variance; i++) {
-            if (getCode(secretBytes, timeIndex + i) == code) {
+            if (getCode(secretBytes, timeIndex + i) == inputCode) {
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean verifyCode(String secret, int code, Date time, int variance) throws Exception {
+        return verifyCode(secret, code, getDateTimeIndex(time), variance);
     }
 
     /**
@@ -102,13 +107,17 @@ public class TwoFactorAuthIetfRfc6238Utils {
         return (truncatedHash %= 1000000);
     }
 
+    public long getDateTimeIndex(Date time) {
+        return time.getTime()/1000/30;
+    }
+
     /**
      * the time interval for the auth change is 30 secons.  this will
      * return the current time index i.e. the number of 30s intervals since the
      * UNIX time epoch.
      * @return
      */
-    public static long getTimeIndex() {
+    public long getNowTimeIndex() {
         return System.currentTimeMillis()/1000/30;
     }
 }
