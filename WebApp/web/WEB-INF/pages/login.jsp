@@ -15,10 +15,7 @@
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-<%--<h1>Login Required</h1>--%>
-
 <div id="login-box">
-
     <c:if test="${param.logout != null}}">
         <div class="error">You have been logged out</div>
     </c:if>
@@ -26,35 +23,35 @@
         <div class="msg">Invalid Username/Password</div>
     </c:if>
 
-<%-- http://bootsnipp.com/tags/3.2.0 --%>
-    <div class="container" style="margin-top:30px">
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading"><h3 class="panel-title"><strong>Sign In </strong></h3></div>
-                <div class="panel-body">
-                    <form role="form" name="loginForm" action="/login" method="post">
-                        <div class="form-group">
-                            <label for="username">Username or Email</label>
-                            <input type="text" class="form-control" name='username' id="username" placeholder="Enter username">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password <a href="/sessions/forgot_password">(forgot password)</a></label>
-                            <input type="password" class="form-control" name='password' id="password" placeholder="Password">
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                            </label>
-                        </div>
+<%-- http://bootsnipp.com/tags/3.2.0
 
-                        <button type="submit" class="btn btn-sm btn-default">Sign in</button>
-                        <input type="hidden" name="${_csrf.parameterName}"
-                               value="${_csrf.token}" />
-                    </form>
-                </div>
+    http://bootsnipp.com/snippets/featured/login-in-a-panel
+--%>
+    <div class="container" style="margin-top:30px">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title"><strong>Sign In </strong></h3></div>
+            <div class="panel-body">
+                <form role="form" name="loginForm" action="/login" method="post">
+                    <div class="form-group">
+                        <label for="username">Username or Email</label>
+                        <input type="text" class="form-control" name='username' id="username" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password <a href="/sessions/forgot_password">(forgot password)</a></label>
+                        <input type="password" class="form-control" name='password' id="password" placeholder="Password">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-sm btn-default">Sign in</button>
+                    <input type="hidden" name="${_csrf.parameterName}"
+                           value="${_csrf.token}" />
+                </form>
             </div>
         </div>
-        <hr>
     </div>
 </div>
 </body>
