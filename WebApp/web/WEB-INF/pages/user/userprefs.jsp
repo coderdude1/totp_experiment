@@ -24,7 +24,7 @@
 
     <div class="container">
         <div class="row">
-            <h1>User Management</h1>
+            <h1>Edit User Preferences</h1>
 
         <%--<divclass="span8 offset2">--%>
             <form:form method="post" action="add" commandName="user" class="form-horizontal">
