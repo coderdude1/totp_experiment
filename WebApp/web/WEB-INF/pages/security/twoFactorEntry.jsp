@@ -14,7 +14,7 @@
 <body onload='document.twoFactorAuthForm.authCode.focus();'>
 
   <div class="container" style="margin-top:30px">
-    <div class="col-md-6">
+    <%--<div class="col-md-6">--%>
       <div class="panel panel-default">
         <div class="panel-heading"><h3 class="panel-title"><strong>Two Factor Authentication </strong></h3></div>
         <div class="panel-body">
@@ -32,7 +32,7 @@
             </div>
           </form>
         </div>
-      </div>
+      <%--</div>--%>
   </div>
 
 </body>
