@@ -96,6 +96,12 @@
             <version>18.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+
         <!-- web stuff required to get jstl working with servlet 3.0
             http://stackoverflow.com/questions/6094329/tomcat-7-and-jstl
             not sure if this is necessary tho, experiment!

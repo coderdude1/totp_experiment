@@ -3,6 +3,7 @@ package com.dood.web.controller;
 import com.dood.app.entities.User;
 import com.dood.app.service.TotpService;
 import com.dood.app.service.UserService;
+import com.dood.web.security.TwoFactorAuthSessionKeys;
 import com.google.common.primitives.Ints;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.util.Date;
 
@@ -39,7 +42,8 @@ public class TwoFactorAuthController {
     }
 
     @RequestMapping(value = "/submitCode", method = RequestMethod.POST)
-    public String submitCode(@ModelAttribute("authCode") String authCode, ModelMap model, Principal principal) {
+    public String submitCode(@ModelAttribute("authCode") String authCode, ModelMap model,
+                             Principal principal, HttpServletRequest request) {
         //get entry
         String email = principal.getName();
         User user = userService.getByLogin(email);
@@ -52,12 +56,16 @@ public class TwoFactorAuthController {
         }
         boolean verifiedCode = totpService.verifyCode(secret, intAuthCode, new Date());
         if(verifiedCode)  {
+            log.info("User successfully 2fad user=" + user);
             //TODO update db with fact that the user session is authed (need to create
             //TODO set a session var to show the user has succesffully 2 factor authed
             //
             //a filter to verify that all requests are validated (to prevent url hacking to
             //bypass the 2 factor auth
-            return "index";//for now reutrn to main landing page, later look up if user had an url entered (might be in HttpRequest
+            HttpSession session = request.getSession();
+            model.clear();//prevent ?authCode=xxxxxx as part of redirect
+            session.setAttribute(TwoFactorAuthSessionKeys.TWO_FACTOR_AUTH_SUCCESSFUL.toString(), true);
+            return "redirect:/";//for now reutrn to main landing page, later look up if user had an url entered (might be in HttpRequest
         }
 
         //TODO verify session var for successful 2 factor auth is removed
@@ -65,7 +73,7 @@ public class TwoFactorAuthController {
         model.addAttribute("user", user);
         model.addAttribute("error", "Invalid code entered.  Please try again");
         //            return "redirect:/security/twoFactorEntry";//adds attribute to url, get error about request resource is not available
-
+        log.warn("failed 2fa attempt by user: " + user);
         return "/security/twoFactorEntry";//TODO this might need some tweeking so error shows up
     }
 }
