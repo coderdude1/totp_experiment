@@ -14,10 +14,11 @@ import org.springframework.stereotype.Component;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- *  Used to redirect a successfully authenticated user to the two factor screen if they have 2 factor
+ *  Used to redirect after spring successfully authenticates a user to the two factor screen if they have 2 factor
  *  auth enabled.
  *
  *  http://www.baeldung.com/spring_redirect_after_login
@@ -34,32 +35,27 @@ public class TwoFactorAuthSavedRequestAuthenticationHandler implements Authentic
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws ServletException, IOException {
 
-        System.out.println("place to hang breakpoint");
-        String targetUrl = determineTargetUrl(authentication);
+        String targetUrl = determineTargetUrl(request, authentication);
+        log.debug("targetURL={}", targetUrl);
+
         if (response.isCommitted()) {
             log.debug("Response has already been committed. Unable to redirect to " + targetUrl);
             return;
         }
 
-   /*
-   get userid
-   if(user.2factoraut.enabled
-        redirect to enter jcode
-   else act like SavedRequestAwareAuthSuccessHandler
-    */
-
         redirectStrategy.sendRedirect(request, response, targetUrl);
-
     }
 
     /** Builds the target URL according to the logic defined in the main class Javadoc. */
-    protected String determineTargetUrl(Authentication authentication) {
+    protected String determineTargetUrl(HttpServletRequest request, Authentication authentication) {
         User user = userDao.findByEmail(authentication.getName());
+        log.debug("userAuthenticated user={}", user);
         if(user.isTwoFactorAuthEnabled()) {
+            HttpSession session = ((HttpServletRequest)request).getSession();
+            session.setAttribute(TwoFactorAuthSessionKeys.TWO_FACTOR_AUTH_ENABLED.toString(),
+                    true);
             return "/twofactorauth";
         } else {
-            //when I extend SavedRequestAwareAuthenticationSuccessHandler
-//            super.onAuthenticationSuccess(request, response, authentication);//no 2 factor auth
             return "/";
         }
     }

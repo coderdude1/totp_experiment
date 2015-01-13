@@ -15,7 +15,7 @@ import java.util.Date;
 @Service
 public class TotpServiceImpl implements TotpService {
     private static final Logger log = LoggerFactory.getLogger(TotpServiceImpl.class);
-    private int intervalVariance = 1;//TODO use some spring magic to load this from config file/db?
+    private int intervalVariance = 2;//TODO use some spring magic to load this from config file/db?
     @Autowired
     private TwoFactorAuthIetfRfc6238Utils twoFactorAuthIetfRfc6238Utils;
 
